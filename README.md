@@ -19,14 +19,15 @@ A modern React application with Auth0 authentication, featuring a beautiful UI a
 
 - Node.js (version 14 or higher)
 - npm or yarn
+- Auth0 account
 
 ## Quick Start
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/react-auth0-app.git
-cd react-auth0-app
+git clone https://github.com/monishchaganti001/react-auth0-cursorapp.git
+cd react-auth0-cursorapp
 ```
 
 ### 2. Install Dependencies
@@ -35,11 +36,21 @@ cd react-auth0-app
 npm install
 ```
 
-### 3. Auth0 Configuration
+### 3. Environment Variables Setup
 
-This app is already configured with Auth0 credentials:
-- **Domain**: `cic-demo-monish-chaganti.cic-demo-platform.auth0app.com`
-- **Client ID**: `AhpT0EauJuZALuumctlu4pdrejA0r7Ui`
+Copy the example environment file and add your Auth0 credentials:
+
+```bash
+cp env.example .env
+```
+
+Edit the `.env` file with your Auth0 credentials:
+
+```env
+REACT_APP_AUTH0_DOMAIN=your-domain.auth0app.com
+REACT_APP_AUTH0_CLIENT_ID=your-client-id
+REACT_APP_AUTH0_CLIENT_SECRET=your-client-secret
+```
 
 ### 4. Configure Auth0 Application Settings
 
@@ -87,6 +98,12 @@ This app uses the `@auth0/auth0-react` SDK for seamless authentication:
 - **Protected Routes**: Profile page requires authentication
 - **Token Management**: Automatic token refresh and management
 
+## Security
+
+- **Environment Variables**: Auth0 credentials are stored in `.env` file (not committed to Git)
+- **Client-Side Security**: Only public credentials (domain, client ID) are used in the frontend
+- **Protected Routes**: Sensitive pages require authentication
+
 ## Customization
 
 ### Styling
@@ -131,10 +148,10 @@ Make sure to update your Auth0 application settings with your production URLs:
    - Make sure your Auth0 application has the correct callback URLs configured
 
 2. **"Invalid client_id" error**
-   - The client ID is already configured in the code
+   - Verify your `REACT_APP_AUTH0_CLIENT_ID` in the `.env` file is correct
 
 3. **App not loading**
-   - Check that your Auth0 application settings are correct
+   - Check that your `.env` file exists and has the correct credentials
    - Ensure the domain and client ID match your Auth0 dashboard
 
 ### Getting Help

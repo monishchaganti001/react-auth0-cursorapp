@@ -7,10 +7,10 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Auth0 configuration with your specific credentials
+// Auth0 configuration using environment variables
 const auth0Config = {
-  domain: 'cic-demo-monish-chaganti.cic-demo-platform.auth0app.com',
-  clientId: 'AhpT0EauJuZALuumctlu4pdrejA0r7Ui',
+  domain: process.env.REACT_APP_AUTH0_DOMAIN,
+  clientId: process.env.REACT_APP_AUTH0_CLIENT_ID,
   authorizationParams: {
     redirect_uri: window.location.origin,
     scope: 'openid profile email'
